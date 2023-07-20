@@ -19,7 +19,6 @@ export default async function handler
     await user.save();
 
     res.status(201).json({ message: 'User registered successfully' ,success:true});
-    res.redirect('/')
  
 }
 	}
