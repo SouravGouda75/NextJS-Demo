@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import '../app/globals.css'
 import axios from 'axios';
-// import { useRouter } from 'next/router';
-import useRouter from 'next/navigation'
+import { useRouter } from 'next/router';
+// import useRouter from 'next/navigation'
 import Navbar from '@/component/Navbar';
 import Footer from '@/component/Footer';
 const page = () => {
