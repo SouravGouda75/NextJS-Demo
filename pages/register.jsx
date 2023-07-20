@@ -2,22 +2,28 @@
 // create a login page with console log in next js ? 
 import React, { useState } from 'react'
 import '../app/globals.css'
+import { useRouter } from 'next/router';
+
 import axios from 'axios';
 import Navbar from '@/component/Navbar';
 import Footer from '@/component/Footer';
 const page = () => {
 	const [email, setEmail] = useState('');
 	const [pass, setPass] = useState('');
-
+	const route=useRouter()
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		try {
-			await axios.post('/api/registerData', { email: email, password: pass });
+			const response=await axios.post('/api/registerData', { email: email, password: pass });
 			// Handle success, e.g., show a success 
 			setEmail("")
 			setPass("")
-			console.log('Credentials stored successfully');
+			
+			if(response.data.success){
+				console.log('Credentials stored successfully');
+				route.push('/login')
+			}
 		} catch (error) {
 			// Handle error, e.g., show an error message
 			console.error('Error storing credentials', error);

@@ -18,7 +18,7 @@ export default async function handler
     // Save the user to the database
     await user.save();
 
-    res.status(201).json({ message: 'User registered successfully' });
+    res.status(201).json({ message: 'User registered successfully' ,success:true});
     res.redirect('/')
  
 }
